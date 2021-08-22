@@ -2,7 +2,7 @@
 
 
 ## Framework
-'Flask' framework was used to create web application.
+'Flask' framework was used to create web application. \
 It has all necessary functional, like request handling, easy response,
 HTML page formatting.
 
