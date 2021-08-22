@@ -1,60 +1,45 @@
 # Best practices for a Python web application
 
-
 ## Framework
-'Flask' framework was used to create web application.
+
+[Flask](https://flask.palletsprojects.com/en/2.0.x/) framework was used to create web application.
 
 It has all necessary functional, like request handling, easy response,
 HTML page formatting.
-
-[Flask] (https://flask.palletsprojects.com/en/2.0.x/)
-
 
 ## Package manager
 
 Package manager helps to track, install, manage project dependencies.
 
-In this project 'Poetry' package manager was used.
+In this project [Poetry](https://python-poetry.org/) package manager was used.
 
 All the dependencies are listed in 'pyproject.toml' file
-
-[Poetry] (https://python-poetry.org/)
-
 
 ## Formatting tools
 
 Formatting tools helps to reformat code for better style and make it
 more readable.
 
-In this project 'Black' formatting tool was used, since it is one of
+In this project [Balck](https://deepsource.io/blog/python-code-formatters/) formatting tool was used, since it is one of
 the most popular and conventional tools for code reformatting.
-
-[Balck] (https://deepsource.io/blog/python-code-formatters/)
-
 
 ## Linters
 
 Linter is a tool that analyzes source code to flag programming errors,
 bugs, stylistic errors, and suspicious constructs.
 
-As python linter was used 'pylint' to check for code errors
+As python linter was used [pylint](https://www.pylint.org/) to check for code errors
 and following code style conventions.
 
-'Darglint' was used to check docstring style.
+For formatting markdown i have used <https://dlaa.me/markdownlint/>
 
-[pylint] (https://www.pylint.org/)
-[Darglint] (https://github.com/terrencepreilly/darglint)
-
+[Darglint](https://github.com/terrencepreilly/darglint) was used to check docstring style.
 
 ## Create .gitignore
 
-
 ## Add license
 
-For licensing 'lice' package was used
-
-[lice] [https://github.com/licenses/lice]
-
+For licensing [lice](https://github.com/licenses/lice) package was used
 
 ## Rules & Principles
 
