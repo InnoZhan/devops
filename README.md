@@ -4,6 +4,8 @@ Moscow-time is a Python web application for that provides current time in Moscow
 
 ## Installation
 
+Clone the repository
+
 Use the Poetry package manager [Poetry](https://python-poetry.org/) to install Moscow-time.
 
 ```bash
