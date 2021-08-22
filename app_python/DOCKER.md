@@ -1,4 +1,4 @@
-# Best practices for a docker
+# Best practices for docker
 
 ## Linters
 
