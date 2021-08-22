@@ -2,7 +2,8 @@
 
 
 ## Framework
-'Flask' framework was used to create web application. \
+'Flask' framework was used to create web application.
+
 It has all necessary functional, like request handling, easy response,
 HTML page formatting.
 
@@ -12,7 +13,9 @@ HTML page formatting.
 ## Package manager
 
 Package manager helps to track, install, manage project dependencies.
+
 In this project 'Poetry' package manager was used.
+
 All the dependencies are listed in 'pyproject.toml' file
 
 [Poetry] (https://python-poetry.org/)
@@ -55,5 +58,12 @@ For licensing 'lice' package was used
 
 ## Rules & Principles
 
+Follow PEP 8 code style
+
 Try to comment all parts of the code that could be difficult to understand
+
 Use readable variable names
+
+Use proper tabbing
+
+Use blank lines
