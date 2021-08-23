@@ -37,9 +37,14 @@ Please make sure to update tests as appropriate.
 ## Docker image download
 
 To clone docker image use
-'sudo docker pull zhandos1609/moscow-time'
+```bash
+sudo docker pull zhandos1609/moscow-time
+```
 
 ## Docker image run image
 
 To start application
-'sudo docker run -p 5000:5000 zhandos1609/moscow-time'
+
+```bash
+sudo docker run -p 5000:5000 zhandos1609/moscow-time
+```
