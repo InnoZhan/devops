@@ -8,3 +8,7 @@ to check markdown format
 ## Multistage build
 
 Build app on one stage and use it in other to save image size
+
+## Rootless containers
+
+Used new user to limit access and improve security
