@@ -5,6 +5,7 @@ on request it returns HTML page with Moscow time
 """
 
 import datetime
+
 import pytz
 from flask import Flask, render_template
 
@@ -27,4 +28,4 @@ def get_time():
 
 
 if __name__ == "__main__":
-    app.run(host = "0.0.0.0")
+    app.run(host="0.0.0.0")

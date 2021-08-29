@@ -1,13 +1,15 @@
+import datetime
+
+import pytz
 import requests
 from bs4 import BeautifulSoup
-import datetime
-import pytz
+
 
 def time_check():
-    r = requests.get('http://127.0.0.1:5000')
-    soup = BeautifulSoup(r.text, 'html.parser')
+    r = requests.get("http://127.0.0.1:5000")
+    soup = BeautifulSoup(r.text, "html.parser")
 
-    time_respose = soup.find("h1", id = "time-holder").text
+    time_respose = soup.find("h1", id="time-holder").text
     time_respose = datetime.datetime.strptime(time_respose, "%H:%M:%S")
 
     timezone = pytz.timezone("Europe/Moscow")
@@ -17,6 +19,7 @@ def time_check():
 
     print((time_respose - real_time).seconds < 1)
     return True
+
 
 def test_answer():
     assert time_check()
