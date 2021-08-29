@@ -48,3 +48,16 @@ To start application
 ```bash
 sudo docker run -p 5000:5000 zhandos1609/moscow-time
 ```
+
+## Unit tests
+
+To test running application use pytest framework
+
+```bach
+pip install pytest
+cd tests
+pytest
+```
+
+test_connection.py checks wether connection with application is available and if application responses correctly.
+test_time.py checks time difference in Moscow and time from response is less than second.

@@ -52,3 +52,18 @@ Use readable variable names
 Use proper tabbing
 
 Use blank lines
+
+
+## Unit tests
+
+With pytest framework we can ran unit tests in tests directory.
+
+test_connection.py checks wether connection with application is available and if application responses correctly.
+test_time.py checks time difference in Moscow and time from response is less than second.
+
+Tests Should Be Fast - less time it takes to test application more it will be tested
+Tests Should Be Simple - simpler tests provides more confidence in their results
+Test Shouldn’t Duplicate Implementation Logic - less chance that bug from tested code will be repeated
+Tests Should Be Readable - so developer could easily track the bug from test results
+Tests Should Be Deterministic - test should not change result if tested code is not changed
+Adopt a Sound Naming Convention for Your Tests - tests should present which part of the application they test

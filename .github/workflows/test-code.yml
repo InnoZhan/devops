@@ -1,0 +1,13 @@
+name: test pushed code
+on: [push]
+jobs:
+  test-pushed-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Run Super-Linter
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: test
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
