@@ -33,9 +33,6 @@ jobs:
       - name: Install library
         run: poetry install --no-interaction
 
-      - name: Start application
-        run: poetry run python server.py
-
       - name: Run tests
         run: |
           source .venv/bin/activate
