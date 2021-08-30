@@ -17,8 +17,7 @@ def time_check():
     real_time = str(server_time.strftime("%H:%M:%S"))
     real_time = datetime.datetime.strptime(real_time, "%H:%M:%S")
 
-    print((time_respose - real_time).seconds < 1)
-    return True
+    return (time_respose - real_time).seconds < 1
 
 
 def test_answer():

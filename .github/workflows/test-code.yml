@@ -1,8 +1,57 @@
-name: test pushed code
-on: [push]
+name: test code
+
+on: push
+
+env:
+  APP_PATH: ./app_python
+  TEST_PATH: ./tests
+
 jobs:
-  test-pushed-code:
+  run_tests:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.TEST_PATH }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --no-root
+
+      - name: Install library
+        run: poetry install --no-interaction
+
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
+          pytest tests/
+          coverage report
+
+  run_linter:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.APP_PATH }}
+
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
