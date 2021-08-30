@@ -36,9 +36,13 @@ jobs:
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        with:
+          path: ${{ env.APP_PATH }}
         run: poetry install --no-interaction --no-root
 
       - name: Install library
+        with:
+          path: ${{ env.APP_PATH }}
         run: poetry install --no-interaction
 
       - name: Run tests
