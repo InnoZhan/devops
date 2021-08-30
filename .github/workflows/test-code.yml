@@ -44,6 +44,7 @@ jobs:
       - name: Run tests
         run: |
           source .venv/bin/activate
+          pip install pytest
           pytest ${{ env.TEST_PATH }}
           coverage report
 
