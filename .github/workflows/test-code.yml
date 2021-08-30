@@ -38,7 +38,6 @@ jobs:
           source .venv/bin/activate
           pip install -r tests/requirements.txt
           pytest ${{ env.TEST_PATH }}
-          coverage report
 
   run_linter:
     runs-on: ubuntu-latest
