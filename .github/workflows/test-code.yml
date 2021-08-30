@@ -3,6 +3,7 @@ name: test code
 on: push
 
 env:
+  HOME_PATH: .
   APP_PATH: ./app_python
   TEST_PATH: ./tests
 
@@ -11,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ${{ env.TEST_PATH }}
+        working-directory: ${{ env.HOME_PATH }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -43,7 +44,7 @@ jobs:
       - name: Run tests
         run: |
           source .venv/bin/activate
-          pytest tests/
+          pytest ${{ env.TEST_PATH }}
           coverage report
 
   run_linter:
