@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ${{ env.HOME_PATH }}
+        working-directory: ${{ env.APP_PATH }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -36,13 +36,9 @@ jobs:
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        with:
-          path: ${{ env.APP_PATH }}
         run: poetry install --no-interaction --no-root
 
       - name: Install library
-        with:
-          path: ${{ env.APP_PATH }}
         run: poetry install --no-interaction
 
       - name: Run tests
