@@ -39,6 +39,21 @@ jobs:
           pip install -r tests/requirements.txt
           pytest ${{ env.TEST_PATH }}
 
+  run_linter:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.APP_PATH }}
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Run Super-Linter
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: test
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
   build:
     runs-on: ubuntu-latest
     steps:
