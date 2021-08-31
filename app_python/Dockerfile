@@ -19,7 +19,6 @@ FROM python:3.8-alpine AS app
 
 WORKDIR /myapp
 
-COPY --from=app_deps /venv /venv
 COPY . .
 
 RUN apk add --no-cache openssl==1.1.1 libffi==3.2.1-r2 \
@@ -27,4 +26,4 @@ RUN apk add --no-cache openssl==1.1.1 libffi==3.2.1-r2 \
     chown -R app /venv && \
     chown -R app /myapp
 
-CMD ["/venv/bin/python3", "server.py"]
+CMD ["poetry", "run", "python", "server.py"]
