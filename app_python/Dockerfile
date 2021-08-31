@@ -5,7 +5,7 @@ WORKDIR /myapp
 
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
-RUN apk add --no-cache build-base=0.4-r1 openssl-dev=1.1.1 libffi-dev=3.3-4
+RUN apk add --no-cache build-base==0.4-r1 openssl-dev==1.1.1 libffi-dev==3.3-4
 
 RUN python3 -m venv /venv
 
@@ -24,7 +24,7 @@ WORKDIR /myapp
 COPY --from=app_deps /venv /venv
 COPY . .
 
-RUN apk add --no-cache openssl=1.1.1 libffi=3.4.2
+RUN apk add --no-cache openssl==1.1.1 libffi==3.4.2
 
 RUN adduser --disabled-password app -h /myapp && \
   chown -R app /venv && \
