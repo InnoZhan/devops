@@ -1,12 +1,12 @@
 import datetime
 
 import pytz
-import requests
 from bs4 import BeautifulSoup
 from server import app
 
 app.testing = True
 client = app.test_client()
+
 
 def time_check():
     r = client.get("http://127.0.0.1:5000")
