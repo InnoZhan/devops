@@ -10,7 +10,7 @@ client = app.test_client()
 
 def time_check():
     r = client.get("http://127.0.0.1:5000")
-    soup = BeautifulSoup(r.text, "html.parser")
+    soup = BeautifulSoup(r.data, "html.parser")
 
     time_respose = soup.find("h1", id="time-holder").text
     time_respose = datetime.datetime.strptime(time_respose, "%H:%M:%S")
