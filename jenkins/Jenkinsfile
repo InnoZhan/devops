@@ -33,23 +33,17 @@ pipeline {
             steps {
                 parallel (
                     'codestyle': {
-                        dir("${APP_PATH}") {
-                            sh 'poetry run isort ${CODE}'
-                            sh 'poetry run black ${CODE}'
+                        dir("${HOME_PATH}") {
+                            sh 'pip install -r lint_reqirements.txt'
+                            sh 'black ${APP_PATH}/${CODE}'
                         }
                     },
                     'lint': {
                         dir("${APP_PATH}") {
-                            sh 'poetry run pylint ${CODE}'
+                            sh 'pylint ${APP_PATH}/${CODE}'
                         }
                     },
-                    'test': {
-                        dir("${APP_PATH}") {
-                            sh 'poetry run python -m pytest ${TESTS}'
-                        }
-                    }
                 )
-
             }
         }
         stage('Build docker image') {
