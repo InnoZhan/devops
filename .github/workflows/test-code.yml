@@ -51,7 +51,7 @@ jobs:
       - name: Install linters
         run:  pip install -r lint_reqirements.txt
       - name: Run linters
-        run:  pylint /app_python/server.py \
+        run:  pylint /app_python/server.py
               black /app_python/server.py
 
   build:
