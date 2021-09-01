@@ -9,7 +9,7 @@ client = app.test_client()
 
 
 def time_check():
-    r = client.get("http://127.0.0.1:5000")
+    r = client.get("http://127.0.0.1:5000/")
     soup = BeautifulSoup(r.data, "html.parser")
 
     time_respose = soup.find("h1", id="time-holder").text
