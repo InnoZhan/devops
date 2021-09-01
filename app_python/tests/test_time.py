@@ -24,4 +24,4 @@ def time_check():
 
 
 def test_answer():
-    assert True
+    assert time_check()
