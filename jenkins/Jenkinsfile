@@ -11,7 +11,7 @@ pipeline {
         dockerImage = ''
     }
     agent {
-        dockerfile {
+        Dockerfile {
             dir 'jenkins'
             args '-u root -v $HOME/.cache:/root/.cache -v /var/run/docker.sock:/var/run/docker.sock'
         }
