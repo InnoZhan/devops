@@ -6,7 +6,7 @@ pipeline {
         HOME_PATH = '.'
         CODE = 'server.py'
         TESTS = 'tests'
-        registry = "zhandos1609/devops_lab:latest"
+        registry = "zhandos1609/devops_lab"
         registryCredential = 'docker_cred'
         dockerImage = ''
     }
