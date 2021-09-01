@@ -1,0 +1,77 @@
+pipeline {
+
+    environment {
+        POETRY_VERSION = '1.1.8'
+        APP_PATH = 'app_python'
+        CODE = 'server.py'
+        TESTS = 'tests'
+        registry = "zhandos1609/devops_lab:latest"
+        registryCredential = 'docker_cred'
+        dockerImage = ''
+    }
+    agent {
+        dockerfile {
+            dir 'jenkins'
+            args '-u root -v $HOME/.cache:/root/.cache -v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('deps') {
+            steps {
+                dir("${APP_PATH}") {
+                    sh 'poetry install'
+                }
+            }
+        }
+        stage('lint-test') {
+            steps {
+                parallel (
+                    'codestyle': {
+                        dir("${APP_PATH}") {
+                            sh 'poetry run isort ${CODE}'
+                            sh 'poetry run black ${CODE}'
+                        }
+                    },
+                    'lint': {
+                        dir("${APP_PATH}") {
+                            sh 'poetry run pylint ${CODE}'
+                        }
+                    },
+                    'test': {
+                        dir("${APP_PATH}") {
+                            sh 'poetry run python -m pytest ${TESTS}'
+                        }
+                    }
+                )
+
+            }
+        }
+        stage('Build docker image') {
+            steps{
+                dir("${APP_PATH}") {
+                    script {
+                        dockerImage = docker.build registry + ":jenkins-$BUILD_NUMBER"
+                    }
+                }
+            }
+        }
+
+        stage('Deploy docker image') {
+            steps{
+                script {
+                    docker.withRegistry('', registryCredential) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
+    }
+    post {
+        cleanup { cleanWs() }
+    }
+}
