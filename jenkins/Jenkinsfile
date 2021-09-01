@@ -27,7 +27,7 @@ pipeline {
                 dir("${APP_PATH}") {
                     sh 'poetry install'
                 }
-                dif("${HOME_PATH}") {
+                dir("${HOME_PATH}") {
                     sh 'pip install -r lint_reqirements.txt'
                 }
             }
