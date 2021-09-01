@@ -61,3 +61,9 @@ pytest
 
 test_connection.py checks wether connection with application is available and if application responses correctly.
 test_time.py checks time difference in Moscow and time from response is less than second.
+
+## Github actions
+
+Github actions runs test-code.yml workflow.
+
+This workflow checks if application passes the tests and also uses pylint and black to check code style.
