@@ -37,12 +37,11 @@ pipeline {
                 parallel (
                     'codestyle': {
                         dir("${HOME_PATH}") {
-                            sh 'pip install -r lint_reqirements.txt'
                             sh 'black ${APP_PATH}/${CODE}'
                         }
                     },
                     'lint': {
-                        dir("${APP_PATH}") {
+                        dir("${HOME_PATH}") {
                             sh 'pylint ${APP_PATH}/${CODE}'
                         }
                     },
