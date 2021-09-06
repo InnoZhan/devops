@@ -26,4 +26,3 @@ htmlcov/
 .coverage.*
 *,cover
 ansible/awskey.pem
-ansible/huy

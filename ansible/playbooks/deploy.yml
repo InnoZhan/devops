@@ -1,0 +1,7 @@
+---
+- name: Deploy application
+  hosts: aws
+  become: yes
+
+  roles:
+    - roles/startapp
