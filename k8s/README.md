@@ -21,3 +21,13 @@ NAME                  TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)     
 service/kubernetes    ClusterIP      10.96.0.1        <none>        443/TCP          54m
 service/moscow-time   LoadBalancer   10.101.194.113   <pending>     5000:32170/TCP   13s
 ```
+
+```bash
+~/.../lab_1_2/k8s >>> kubectl get pod,svc                                                                                                                                                               ±[●][main]
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/moscow-time-8475cf98cb-2vfth   1/1     Running   0          8m48s
+
+NAME                  TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes    ClusterIP      10.96.0.1       <none>        443/TCP          85m
+service/moscow-time   LoadBalancer   10.100.26.151   <pending>     5000:30246/TCP   8m48s
+```
