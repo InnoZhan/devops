@@ -23,12 +23,12 @@ def get_time():
     server_time = datetime.datetime.now(timezone)
     print(str(server_time))
     visits = []
-    with open("visits.txt", "r") as f: 
-        visits = f.readlines()
+    with open("visits.txt", "r") as file: 
+        visits = file.readlines()
     visits = visits[:100]
     visits.insert(0, str(server_time)+'\n')
-    with open("visits.txt", "w") as f: 
-        f.writelines(visits)
+    with open("visits.txt", "w") as file: 
+        file.writelines(visits)
     html_response = render_template(
         "index.html", time=str(server_time.strftime("%H:%M:%S"))
     )
@@ -43,8 +43,8 @@ def get_visits():
         int: number of times was accessed
     """
     visits = []
-    with open("visits.txt", "r") as f: 
-        visits = f.readlines()
+    with open("visits.txt", "r") as file: 
+        visits = file.readlines()
     html_response = render_template(
         "visits.html", visits=visits
     )
