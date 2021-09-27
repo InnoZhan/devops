@@ -53,6 +53,14 @@ spec:
                 secretKeyRef:
                   name: mysecret
                   key: password
+          volumeMounts:
+            - name: example-config
+              mountPath: /files/config.yaml
+              subPath: config.yaml
+      volumes:
+        - name: example-config
+          configMap:
+            name: {{ .Values.configmap.config.name }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
