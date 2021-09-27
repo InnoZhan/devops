@@ -55,8 +55,8 @@ spec:
                   key: password
           volumeMounts:
             - name: example-config
-              mountPath: /files/config.yaml
-              subPath: config.yaml
+              mountPath: config.json
+              subPath: config.json
       volumes:
         - name: example-config
           configMap:
