@@ -5,5 +5,4 @@ metadata:
   name: {{ .Values.configmap.config.name }}
 data:
   config.json: {{ .Files.Get "files/config.json" | quote }}
-
 {{- end}}
