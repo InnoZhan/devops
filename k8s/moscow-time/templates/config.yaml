@@ -1,6 +1,9 @@
+{{ if .Values.configmap.enabled }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Values.configmap.config.name }}
 data:
   config.json: {{ .Files.Get "files/config.json" | quote }}
+
+{{- end}}
